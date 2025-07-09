@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-env node */
+
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -8,14 +11,14 @@ app.use(express.json());
 
 const PASSWORD = "nannypass123";
 
-app.post("/download-resume", (req, res) => {
+app.post("/download_resume", (req, res) => {
   const { password } = req.body;
 
   if (password !== PASSWORD) {
     return res.status(401).json({ message: "Incorrect password." });
   }
 
-  const filePath = path.join(__dirname, "resume.pdf");
+  const filePath = path.join(__dirname, "resume2.pdf");
   res.download(filePath, "Nataki-Skinner-Resume.pdf");
 });
 
